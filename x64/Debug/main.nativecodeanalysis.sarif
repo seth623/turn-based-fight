@@ -1,0 +1,51 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.35.32217.1",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///c:/users/seth/desktop/fall 2023/computer-science-1/module 2/f2023-capstoneproject/main.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "sha-256": "b0d4bf2c9799f3f8d4d59e7454042b8b3543ad207d359de65c6c624b83cae85f"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/seth/desktop/fall 2023/computer-science-1/module 2/f2023-capstoneproject/character-class.h"
+          },
+          "hashes": {
+            "sha-256": "dd3e5ceecdea4f50d821023e89fa5fef6a9ff37d52e90d50e2964cda3f2fca78"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/seth/desktop/fall 2023/computer-science-1/module 2/f2023-capstoneproject/character-selection.h"
+          },
+          "hashes": {
+            "sha-256": "61e89167c7468e7a028645b2b82bcbb6dfdbfdb57ecff6540d2caf443aedc568"
+          }
+        }
+      ]
+    }
+  ]
+}

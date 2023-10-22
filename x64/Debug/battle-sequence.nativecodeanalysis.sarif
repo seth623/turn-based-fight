@@ -1,0 +1,43 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.35.32217.1",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///c:/users/seth/desktop/fall 2023/computer-science-1/module 2/f2023-capstoneproject/battle-sequence.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "sha-256": "3a5911f49f15e2ef1cbb3b117117b62dfb30193b501788d822d7906d823e448b"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/seth/desktop/fall 2023/computer-science-1/module 2/f2023-capstoneproject/battle-sequence.h"
+          },
+          "hashes": {
+            "sha-256": "edbf1694260b7a75cc8a011264ca50355cb13d7d0ead2f2cfb384936b2000573"
+          }
+        }
+      ]
+    }
+  ]
+}

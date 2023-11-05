@@ -18,15 +18,18 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="character-selection.cpp">
+    <ClCompile Include="character-obj-selection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="battle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="createAttack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="character-selection.h">
+    <ClInclude Include="character-obj-selection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="character-class.h">

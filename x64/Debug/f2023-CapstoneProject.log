@@ -1,8 +1,5 @@
 ﻿  battle.cpp
-  main.cpp
-  character-obj-selection.cpp
-  Generating Code...
-C:\Users\Seth\Desktop\Fall 2023\computer-science-1\f2023-CapstoneProject\battle.cpp(174): warning C4715: 'turn': not all control paths return a value
-C:\Users\Seth\Desktop\Fall 2023\computer-science-1\f2023-CapstoneProject\battle.cpp(331): warning C4715: 'battle': not all control paths return a value
+C:\Users\Seth\Desktop\Fall 2023\computer-science-1\f2023-CapstoneProject\battle.cpp(188): warning C4715: 'turn': not all control paths return a value
+C:\Users\Seth\Desktop\Fall 2023\computer-science-1\f2023-CapstoneProject\battle.cpp(324): warning C4715: 'battle': not all control paths return a value
 C:\Users\Seth\Desktop\Fall 2023\computer-science-1\f2023-CapstoneProject\character-class.h(76): warning C4715: 'Character::selectAttack': not all control paths return a value
   f2023-CapstoneProject.vcxproj -> C:\Users\Seth\Desktop\Fall 2023\computer-science-1\f2023-CapstoneProject\x64\Debug\f2023-CapstoneProject.exe

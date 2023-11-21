@@ -21,7 +21,7 @@ Character attackChange(attackInfo attackBoost, Character &player)
 	return player;
 }
 
-// Damage Calc
+// Damage Calc 
 Character damageCalculation(attackInfo attackChoice, Character attackingPlayer, Character defendingPlayer)
 {
 	int originalStat;
@@ -72,7 +72,21 @@ int inputAttackChoice(int playerNum)
 	return attackChoice;
 }
 
+// Output Player 1 Stats
+void outP1Stats(Character player1)
+{
+	cout << '\n' << "Player One's Stats:" << '\n' << "Health: " << player1.health << '\n' <<
+	"Attack: " << player1.attack << '\n' << "Defense: " << player1.defense << '\n' <<
+	"Speed: " << player1.speed << '\n';
+}
 
+// Ouput Player 2 Stats
+void outP2Stats(Character player2)
+{
+	cout << '\n' << "Player Two's Stats:" << '\n' << "Health: " << player2.health << '\n' <<
+	"Attack: " << player2.attack << '\n' << "Defense: " << player2.defense << '\n' <<
+	"Speed: " << player2.speed << '\n';
+}
 
 // Speed Stat Change
 Character speedChange(attackInfo speedBoost, Character &player)
@@ -91,7 +105,7 @@ Character speedChange(attackInfo speedBoost, Character &player)
 
 // Turn and Battle functions below
 
-// Single Turn of Two Attacking Phases
+// Single Attacking Phase
 Character turn(Character fastPlayer, Character slowPlayer) // fastPlayer refers to the player who's turn it is, slow player is other player
 {
 	fastPlayer.turnPos;
@@ -177,7 +191,6 @@ Character turn(Character fastPlayer, Character slowPlayer) // fastPlayer refers 
 Character battle(Character &player1, Character &player2)
 {
 
-	// Battle 
 	while (player1.health > 0 && player2.health > 0)
 	{
 		Character turnOnePlayer;
@@ -189,24 +202,21 @@ Character battle(Character &player1, Character &player2)
 		if (player1.speed == player2.speed) // if speed is equal, player 1 goes first
 		{
 			turnOnePlayer = player1;
-			moddedPlayer = turn(player1, player2); // the player who's stats change is returned from the turn() function and saved as moddedPlayer
+			moddedPlayer = turn(player1, player2); // the player who's stats change is returned from the turn() function is saved as moddedPlayer
 
 			if (moddedPlayer.playerID == 1) // player 1 stat change
 			{
-				player1 = moddedPlayer;
+				player1 = moddedPlayer; // update player object
 
-				cout << '\n' << "Player One's Stats:" << '\n' << "Health: " << moddedPlayer.health << '\n' <<
-					"Attack: " << moddedPlayer.attack << '\n' << "Defense: " << moddedPlayer.defense << '\n' <<
-					"Speed: " << moddedPlayer.speed << '\n';
+				outP1Stats(player1); // Ouput Player 1 Stats
 			}
 			else if (moddedPlayer.playerID == 2) // player 2 stat change
 			{
 				player2 = moddedPlayer;
 
-				cout << '\n' << "Player Two's Stats:" << '\n' << "Health: " << moddedPlayer.health << '\n' <<
-					"Attack: " << moddedPlayer.attack << '\n' << "Defense: " << moddedPlayer.defense << '\n' <<
-					"Speed: " << moddedPlayer.speed << '\n';
+				outP2Stats(player2); // Ouput Player 2 Stats
 			}
+
 			turnTwoPlayer = player2; // player 2 goes next
 		}
 		else if (player1.speed > player2.speed) // if player one has higher speed, player 1 goes first
@@ -218,17 +228,13 @@ Character battle(Character &player1, Character &player2)
 			{
 				player1 = moddedPlayer;
 
-				cout << '\n' << "Player One's Stats:" << '\n' << "Health: " << moddedPlayer.health << '\n' <<
-					"Attack: " << moddedPlayer.attack << '\n' << "Defense: " << moddedPlayer.defense << '\n' <<
-					"Speed: " << moddedPlayer.speed << '\n';
+				outP1Stats(player1); // Ouput Player 1 Stats
 			}
 			else if (moddedPlayer.playerID == 2) // player 2 stat change
 			{
 				player2 = moddedPlayer;
 
-				cout << '\n' << "Player Two's Stats:" << '\n' << "Health: " << moddedPlayer.health << '\n' <<
-					"Attack: " << moddedPlayer.attack << '\n' << "Defense: " << moddedPlayer.defense << '\n' <<
-					"Speed: " << moddedPlayer.speed << '\n';
+				outP2Stats(player2); // output player 2 stats
 			}
 
 			turnTwoPlayer = player2; // player 2 goes next
@@ -242,17 +248,13 @@ Character battle(Character &player1, Character &player2)
 			{
 				player1 = moddedPlayer;
 
-				cout << '\n' << "Player One's Stats:" << '\n' << "Health: " << moddedPlayer.health << '\n' <<
-					"Attack: " << moddedPlayer.attack << '\n' << "Defense: " << moddedPlayer.defense << '\n' <<
-					"Speed: " << moddedPlayer.speed << '\n';
+				outP1Stats(player1); 
 			}
 			else if (moddedPlayer.playerID == 2) // player 2 stat change
 			{
 				player2 = moddedPlayer;
 
-				cout << '\n' << "Player Two's Stats:" << '\n' << "Health: " << moddedPlayer.health << '\n' <<
-					"Attack: " << moddedPlayer.attack << '\n' << "Defense: " << moddedPlayer.defense << '\n' <<
-					"Speed: " << moddedPlayer.speed << '\n';
+				outP2Stats(player2);
 			}
 
 			turnTwoPlayer = player1; // player 1 goes next
@@ -273,47 +275,38 @@ Character battle(Character &player1, Character &player2)
 		// Slow Player Goes
 		if (turnTwoPlayer.playerID == 1) // if player 2 went first
 		{
-			// modded player is player who's stats changed in the previous phase
 			moddedPlayer = turn(turnTwoPlayer, turnOnePlayer);
 
 			// decide who's stats to output
-			if (moddedPlayer.playerID == 1) // output player 1 stats
+			if (moddedPlayer.playerID == 1) 
 			{
 				player1 = moddedPlayer;
 
-				cout << '\n' << "Player One's Stats:" << '\n' << "Health: " << moddedPlayer.health << '\n' <<
-					"Attack: " << moddedPlayer.attack << '\n' << "Defense: " << moddedPlayer.defense << '\n' <<
-					"Speed: " << moddedPlayer.speed << '\n';
+				outP1Stats(player1);
 			}
-			else if (moddedPlayer.playerID == 2) // output player 2 stats
+			else if (moddedPlayer.playerID == 2) 
 			{
 				player2 = moddedPlayer;
 
-				cout << '\n' << "Player Two's Stats:" << '\n' << "Health: " << moddedPlayer.health << '\n' <<
-					"Attack: " << moddedPlayer.attack << '\n' << "Defense: " << moddedPlayer.defense << '\n' <<
-					"Speed: " << moddedPlayer.speed << '\n';
+				outP2Stats(player2);
 			}
 		}
 		else if (turnTwoPlayer.playerID == 2) // if player two went second
 		{
-			// decide who's stats to output
+		
 			moddedPlayer = turn(turnTwoPlayer, turnOnePlayer);
 
 			if (moddedPlayer.playerID == 1)
 			{
 				player1 = moddedPlayer;
 
-				cout << '\n' << "Player One's Stats:" << '\n' << "Health: " << moddedPlayer.health << '\n' <<
-					"Attack: " << moddedPlayer.attack << '\n' << "Defense: " << moddedPlayer.defense << '\n' <<
-					"Speed: " << moddedPlayer.speed << '\n';
+				outP1Stats(player1);
 			}
 			else if (moddedPlayer.playerID == 2)
 			{
 				player2 = moddedPlayer;
 
-				cout << '\n' << "Player Two's Stats:" << '\n' << "Health: " << moddedPlayer.health << '\n' <<
-					"Attack: " << moddedPlayer.attack << '\n' << "Defense: " << moddedPlayer.defense << '\n' <<
-					"Speed: " << moddedPlayer.speed << '\n';
+				outP2Stats(player2);
 			}
 		}
 

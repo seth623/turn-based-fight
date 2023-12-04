@@ -4,12 +4,14 @@
 #include "attacks-struct.h"
 #include "character-class.h"
 #include "character-obj-selection.h"
+#include "stats.h"
 #include "battle.h"
+
 
 using namespace std;
 
 // Attack Stat Change
-Character attackChange(attackInfo attackBoost, Character &player)
+Character attackChange(attackInfo attackBoost, Character& player)
 {
 	player.attack += attackBoost.attackBoost;
 
@@ -22,7 +24,7 @@ Character attackChange(attackInfo attackBoost, Character &player)
 }
 
 // Damage Calc 
-Character damageCalculation(attackInfo attackChoice, Character attackingPlayer, Character defendingPlayer)
+Character damageCalculation(attackInfo attackChoice, Character& attackingPlayer, Character& defendingPlayer)
 {
 	int originalStat;
 	originalStat = defendingPlayer.health;
@@ -38,7 +40,7 @@ Character damageCalculation(attackInfo attackChoice, Character attackingPlayer, 
 }
 
 // Defense Stat Change
-Character defenseChange(attackInfo defenseBoost, Character &player)
+Character defenseChange(attackInfo defenseBoost, Character& player)
 {
 	player.defense += defenseBoost.defenseBoost;
 
@@ -73,7 +75,7 @@ int inputAttackChoice(int playerNum)
 }
 
 // Output Player 1 Stats
-void outP1Stats(Character player1)
+void outP1Stats(Character& player1)
 {
 	cout << '\n' << "Player One's Stats:" << '\n' << "Health: " << player1.health << '\n' <<
 	"Attack: " << player1.attack << '\n' << "Defense: " << player1.defense << '\n' <<
@@ -81,7 +83,7 @@ void outP1Stats(Character player1)
 }
 
 // Ouput Player 2 Stats
-void outP2Stats(Character player2)
+void outP2Stats(Character& player2)
 {
 	cout << '\n' << "Player Two's Stats:" << '\n' << "Health: " << player2.health << '\n' <<
 	"Attack: " << player2.attack << '\n' << "Defense: " << player2.defense << '\n' <<
@@ -89,7 +91,7 @@ void outP2Stats(Character player2)
 }
 
 // Speed Stat Change
-Character speedChange(attackInfo speedBoost, Character &player)
+Character speedChange(attackInfo speedBoost, Character& player)
 {
 	player.speed += speedBoost.speedBoost;
 
@@ -106,13 +108,16 @@ Character speedChange(attackInfo speedBoost, Character &player)
 // Turn and Battle functions below
 
 // Single Attacking Phase
-Character turn(Character fastPlayer, Character slowPlayer) // fastPlayer refers to the player who's turn it is, slow player is other player
+Character turn(Character& fastPlayer, Character& slowPlayer) // fastPlayer refers to the player who's turn it is, slow player is other player
 {
 	fastPlayer.turnPos;
 	fastPlayer.turnPos = 1;
 
 	slowPlayer.turnPos;
 	slowPlayer.turnPos = 2;
+
+	// Option to View Stats
+	viewStats(fastPlayer, slowPlayer);
 
 	//Output Attack List
 	cout << '\n' << "Player " << fastPlayer.playerID << " " << "Attacks:" << '\n';
@@ -188,15 +193,14 @@ Character turn(Character fastPlayer, Character slowPlayer) // fastPlayer refers 
 }
 
 // Battle: Loops turn() Function and Has Logic for Deciding Who Goes First
-Character battle(Character &player1, Character &player2)
+Character battle(Character& player1, Character& player2)
 {
+	Character turnOnePlayer{};
+	Character turnTwoPlayer{};
+	Character moddedPlayer{};
 
 	while (player1.health > 0 && player2.health > 0)
 	{
-		Character turnOnePlayer;
-		Character turnTwoPlayer;
-		Character moddedPlayer;
-
 		// Faster Player Goes
 
 		if (player1.speed == player2.speed) // if speed is equal, player 1 goes first

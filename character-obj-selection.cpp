@@ -20,7 +20,7 @@ Character selectCharacter()
 	// Character Init Values: (health, attack, defense, speed)
 
 	// Character 1: Water Type
-	Character character1("Water", 100, 10, 5, 30);
+	Character character1("Water", 100, 15, 10, 30);
 
 	// Build Character 1 Attack 1
 	attackInfo char1Attack1;
@@ -51,7 +51,7 @@ Character selectCharacter()
 	//*******************************************
 
 	// Character 2: Fire Type
-	Character character2("Fire", 100, 15, 5, 25);
+	Character character2("Fire", 100, 20, 5, 25);
 
 	// Build Character 2 Attack 1
 	attackInfo char2Attack1;
@@ -82,7 +82,7 @@ Character selectCharacter()
 	//*******************************************
 
 	// Character3: Grass Type
-	Character character3("Grass", 100, 5, 20, 20);
+	Character character3("Grass", 100, 10, 15, 20);
 
 	// Character 3 Attack 1
 	attackInfo char3Attack1;
@@ -104,8 +104,8 @@ Character selectCharacter()
 
 	// Character 3 Stat Boost 2
 	attackInfo char3StatBoost2;
-	char3StatBoost2 = createAttack("Raise Speed", 4);
-	char3StatBoost2.speedBoost = 5; // Raises your speed by 5
+	char3StatBoost2 = createAttack("Raise Attack", 4);
+	char3StatBoost2.attackBoost = 5; // Raises your speed by 5
 	character3.statBoost2 = char3StatBoost2;	
 
 	optionArray[2] = character3;
